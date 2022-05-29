@@ -7,13 +7,13 @@ Use para criar motds, do jeito que você quiser, com linhas duplas, cores e form
  - /restaurarmotd - 'Restaura sua motd!'
  - /setarmotd - 'Seta sua motd!'
  - /vermotd - 'Veja seu motd, e veja quem foi por ultimo setar ele'
- 
-Soon...
-	
  - /setartmotd em GUI
  - /vermotd em GUI
  - /restaurarmotd em GUI
  - /menu, mostra os 3 comandos acima em GUI
+ 
+Soon...
+	
  - /addmotd em GUI e normal :P
  - Cooldown em segundos
 
