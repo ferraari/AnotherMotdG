@@ -7,6 +7,7 @@ import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
@@ -29,22 +30,49 @@ public class ServerListener implements Listener {
 
         e.setMotd(config.getString("motd").replace("&", "§" ).replace("@n", "\n"));
         e.setMaxPlayers(e.getNumPlayers() + 1);
+
+
+
+
+
+
     }
 
     @EventHandler
     public void getString(AsyncPlayerChatEvent e) {
         if (plugin.players.contains(e.getPlayer().getUniqueId())) {
 
-            TextComponent aqui = new TextComponent(" §aClique §naqui§a para ver seu MOTD!");
+            TextComponent aqui = new TextComponent("§aClique §naqui§a para ver seu MOTD!");
             aqui.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/motd ver"));
             aqui.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("§aClique aqui para ver o motd").create()));
             FileConfiguration config = plugin.getConfig();
 
+            e.setCancelled(true);
             config.set("motd", e.getMessage());
             e.getPlayer().sendMessage("§aMOTD setado com sucesso!");
             e.getPlayer().spigot().sendMessage(aqui);
             plugin.players.remove(e.getPlayer().getUniqueId());
             plugin.saveConfig();
+        }
+        if (plugin.m1.contains(e.getPlayer().getUniqueId())) {
+
+            FileConfiguration config = plugin.getConfig();
+
+            config.set("motd1", e.getMessage());
+            e.getPlayer().sendMessage("§aMOTD setado com sucesso!");
+            plugin.m1.remove(e.getPlayer().getUniqueId());
+            plugin.saveConfig();
+            e.setCancelled(true);
+        }
+        if (plugin.m2.contains(e.getPlayer().getUniqueId())) {
+
+            FileConfiguration config = plugin.getConfig();
+
+            config.set("motd2", e.getMessage());
+            e.getPlayer().sendMessage("§aMOTD setado com sucesso!");
+            plugin.m2.remove(e.getPlayer().getUniqueId());
+            plugin.saveConfig();
+            e.setCancelled(true);
         }
     }
     @EventHandler

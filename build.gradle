@@ -6,8 +6,8 @@ plugins {
     id 'net.minecrell.plugin-yml.bukkit' version '0.3.0'
 }
 
-group 'com.teamdiluvian'
-version '1.0.0'
+group 'com.ferrari'
+version '3.0.0'
 
 repositories {
     mavenCentral()

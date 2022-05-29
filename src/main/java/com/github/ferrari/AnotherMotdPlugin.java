@@ -21,6 +21,9 @@ public class AnotherMotdPlugin extends JavaPlugin {
     private BukkitFrame bukkitFrame;
 
     public List<UUID> players = new ArrayList<>();
+    public List<UUID> m1 = new ArrayList<>();
+    public List<UUID> m2 = new ArrayList<>();
+    public List<UUID> m3 = new ArrayList<>();
 
     @Override
     public void onLoad() {
@@ -36,11 +39,6 @@ public class AnotherMotdPlugin extends JavaPlugin {
     }
 
     private void registerCommands() {
-       /* getCommand("setarmotd").setExecutor(new MotdCommand());
-        getCommand("vermotd").setExecutor(new ShowMotdCommand());
-        getCommand("restaurarmotd").setExecutor(new RestoreMotdCommand());
-        getCommand("gui").setExecutor(new GuiCommand());*/
-
         bukkitFrame = new BukkitFrame(this);
 
         MessageHolder messageHolder = bukkitFrame.getMessageHolder();
